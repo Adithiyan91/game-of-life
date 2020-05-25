@@ -9,7 +9,7 @@ stage('build'){
      }
 }
 }
-node('ansible_control_server'){
+node('ansiblemaster'){
 stage('copy war to ansible server'){
     dir('/home/ansible/opt/webapps'){
         unstash: 'war'
