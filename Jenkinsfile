@@ -4,7 +4,7 @@ git changelog: false, credentialsId: 'goluser1', poll: false, url: 'https://gith
 }
 stage('build'){
     sh 'mvn package'
-     dir('/home/build/workspace/gol-project/gameoflife-web/target/'){
+     dir('/var/lib/jenkins/workspace/ansiblejob/gameoflife-web/target/'){
     stash name: 'war', includes: '*.war'
      }
 }
