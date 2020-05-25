@@ -14,7 +14,7 @@ node('ansiblemaster'){
     echo "unstash coverage path"
 stage('copy war to ansible server'){
     dir('/home/ansible/opt/webapps'){
-        unstash: 'war'
+        unstash name: 'war'
     }
 
   }
