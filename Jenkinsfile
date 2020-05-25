@@ -1,4 +1,4 @@
-node('master')
+node('master'){
 stage('scm'){
 git changelog: false, credentialsId: 'goluser1', poll: false, url: 'https://github.com/Adithiyan91/game-of-life.git'
 }
@@ -7,6 +7,7 @@ stage('build'){
      dir('/var/lib/jenkins/workspace/ansiblejob/gameoflife-web/target/'){
     stash name: 'war', includes: '*.war'
      }
+}
 }
 
 node('ansiblemaster'){
