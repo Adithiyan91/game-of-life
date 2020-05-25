@@ -1,4 +1,5 @@
 node('master'){
+    {
 stage('scm'){
 git changelog: false, credentialsId: 'goluser1', poll: false, url: 'https://github.com/Adithiyan91/game-of-life.git'
 }
@@ -14,5 +15,7 @@ stage('copy war to ansible server'){
     dir('/home/ansible/opt/webapps'){
         unstash: 'war'
     }
+
   }
+}
 }
