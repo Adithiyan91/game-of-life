@@ -19,6 +19,13 @@ stage('copy war to ansible server'){
     }
     echo'execute ansible playbook'
     sh 'ansible --version '
+    stage('execute ping cmd to all hosts'){
+        dir('/etc/ansible'){
+             sh 'ansible all -m ping -i hosts'
+        }
+    }
+    echo 'ansible slave contacted...'
+   
 
   }
 }
