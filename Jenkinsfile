@@ -20,10 +20,10 @@ stage('copy war to ansible server'){
     echo'execute ansible playbook'
     sh 'ansible --version '
     stage('execute ping cmd to all hosts'){
-        echo "become a root user"
+       
               dir('/etc/ansible'){
-                        
-             sh 'ansible all -m ping -i /etc/ansible/hosts --become'
+              echo "become a root user"           
+             sh 'ansible all -m ping -i hosts -b --become-user root'
         }
     }
     echo 'ansible slave contacted...'
