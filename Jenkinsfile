@@ -23,7 +23,7 @@ stage('copy war to ansible server'){
         echo "become a root user"
               dir('/etc/ansible'){
                         
-             sh 'ansible all -m ping -i /etc/ansible/hosts ---ask-become-pass'
+             sh 'ansible all -m ping -i /etc/ansible/hosts --become'
         }
     }
     echo 'ansible slave contacted...'
