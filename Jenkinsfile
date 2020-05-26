@@ -15,7 +15,10 @@ node('ansiblemaster'){
 stage('copy war to ansible server'){
     dir('/home/ansible/opt/webapps'){
         unstash name: 'war'
+
     }
+    echo'execute ansible playbook'
+    sh 'ansible --version '
 
   }
 }
