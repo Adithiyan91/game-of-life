@@ -21,7 +21,7 @@ stage('copy war to ansible server'){
     sh 'ansible --version '
     stage('execute ping cmd to all hosts'){
         dir('/etc/ansible'){
-             sh 'ansible all -m ping -i hosts'
+             sh 'sudo ansible all -m ping -i hosts'
         }
     }
     echo 'ansible slave contacted...'
