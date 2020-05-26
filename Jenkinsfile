@@ -21,11 +21,9 @@ stage('copy war to ansible server'){
     sh 'ansible --version '
     stage('execute ping cmd to all hosts'){
         echo "become a root user"
-        become: true
-        becomeUser: 
-        dir('/etc/ansible'){
+              dir('/etc/ansible'){
                         
-             sh 'ansible all -m ping -i /etc/ansible/hosts -u ansible'
+             sh 'ansible all -m ping -i /etc/ansible/hosts ---ask-become-pass'
         }
     }
     echo 'ansible slave contacted...'
